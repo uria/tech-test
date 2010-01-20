@@ -18,6 +18,13 @@
         <h1><a href="/">Bookmarker</a></h1>
       </div>
       <div id="content">
+        <% unless flash[:notice].blank? %>
+          <%= flash[:notice]%>
+        <% end %>
+        <% unless flash[:error].blank? %>
+          <%= flash[:error]%>
+        <% end %>
+
         <%=yield%>
       </div>
       <div id="footer">
