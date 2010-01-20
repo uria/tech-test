@@ -15,7 +15,11 @@ class Bookmark < ActiveRecord::Base
   end
 
   def url
-    self.site.domain + self.path
+    if self.site.nil?
+      self.path
+    else
+      self.site.domain + self.path
+    end
   end
   
   private

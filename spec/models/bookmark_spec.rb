@@ -35,4 +35,9 @@ describe Bookmark do
       Bookmark.create!(@valid_attributes)
     }.should raise_exception
   end
+
+  it "should return nil url for a new bookmark with all attributes unspecified" do
+    b = Bookmark.new
+    b.url.should be_nil
+  end
 end
