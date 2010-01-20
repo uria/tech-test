@@ -1,2 +1,4 @@
-<h1>Root#index</h1>
-<p>Find me in app/views/root/index.html.erb</p>
+<% form_tag("/bookmarks/new", :method => :get) do %>
+  <%= text_field_tag 'bookmark[url]', 'http://www.google.com/kk', :size => 80 %>
+<%= submit_tag "Add" %>
+<% end -%>
