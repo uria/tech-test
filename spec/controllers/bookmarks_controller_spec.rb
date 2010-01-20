@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe BookmarkController do
+describe BookmarksController do
 
   #Delete these examples and add some real ones
-  it "should use BookmarkController" do
-    controller.should be_an_instance_of(BookmarkController)
+  it "should use BookmarksController" do
+    controller.should be_an_instance_of(BookmarksController)
   end
 
 

@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "/bookmark/new" do
+describe "/bookmarks/new" do
   before(:each) do
-    render 'bookmark/new'
+    render 'bookmarks/new'
   end
 
   #Delete this example and add some real ones or delete this file

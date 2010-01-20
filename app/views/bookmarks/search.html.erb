@@ -1,0 +1,7 @@
+<% @sites.each do |s| -%>
+<p><%=s.domain %></p>
+<% end -%>
+
+<% @bookmarks.each do |b| -%>
+<p><%=link_to b.url, bookmark_path(b) %></p>
+<% end -%>
