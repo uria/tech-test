@@ -3,6 +3,8 @@ class BookmarksController < ApplicationController
 
   def new
     @bookmark = Bookmark.new(params[:bookmark])
+    @bookmark.title = @bookmark.get_title
+    @bookmark.short_url = @bookmark.tinyurl
   end
 
   def create

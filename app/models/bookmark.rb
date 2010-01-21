@@ -1,3 +1,5 @@
+require 'mechanize'
+
 class Bookmark < ActiveRecord::Base
   belongs_to :site
 
@@ -5,7 +7,7 @@ class Bookmark < ActiveRecord::Base
   validates_uniqueness_of :path, :scope => :site_id
 
   acts_as_taggable_on :tags
-  
+
   #False attribute URL, splits itself into site and path
   attr_accessor :url
 
@@ -18,12 +20,28 @@ class Bookmark < ActiveRecord::Base
 
   def url
     if self.site.nil?
-      self.path
+      nil
     else
-      self.site.domain + self.path
+      "http://" + self.site.domain + self.path
     end
   end
-  
+
+  def tinyurl
+    agent = WWW::Mechanize.new
+    page = agent.get("http://tinyurl.com/api-create.php?url=" + self.url)
+    page.body
+  rescue #Just in case
+    "Error. Couldn't retrieve short url."
+  end
+
+  def get_title
+    agent = WWW::Mechanize.new
+    page = agent.get(self.url)
+    page.title
+  rescue
+    "Error. Couldn't retrieve title."
+  end
+
   private
   def self.extract_domain_and_path(url)
     #First, get rid of "http://" if present.

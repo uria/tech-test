@@ -1,5 +1,5 @@
 class RootController < ApplicationController
   def index
-    @bookmark = Bookmark.new
+    @tags = Bookmark.tag_counts_on(:tags)
   end
 end

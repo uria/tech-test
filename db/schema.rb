@@ -15,9 +15,12 @@ ActiveRecord::Schema.define(:version => 20100121010921) do
     t.integer  "site_id"
     t.string   "path"
     t.text     "title"
+    t.string   "short_url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "bookmarks", ["site_id"], :name => "index_bookmarks_on_site_id"
 
   create_table "sites", :force => true do |t|
     t.string   "domain"

@@ -1,9 +1,17 @@
+<div>
+  <%= link_to "View sites", sites_path %>
+</div>
+
+<div class="tag-cloud">
+  <% tag_cloud(@tags, %w(css1 css2 css3 css4 css5)) do |tag, css_class| %>
+    <%= link_to tag.name, tag_path(tag.name), :class => [css_class, "tag"].join(" ") %>
+  <% end %>
+</div>
+
 <% form_tag("/bookmarks/new", :method => :get) do %>
   <%= text_field_tag 'bookmark[url]', 'http://www.google.com/kk', :size => 80 %>
   <%= submit_tag "Add" %>
 <% end -%>
 <%= observe_field "bookmark_url", :url => search_bookmarks_path, :with => "q", :frequency => 0.25, :update => "suggestions-list" %>
 
-<div id="suggestions-list">
-
-</div>
+<div id="suggestions-list"></div>
