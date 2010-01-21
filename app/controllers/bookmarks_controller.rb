@@ -38,7 +38,7 @@ class BookmarksController < ApplicationController
   end
 
   def show
-    @bookmark = Bookmark.find(params[:id])
+    @bookmark = Bookmark.find(params[:id], :include => [:site])
   rescue
     flash[:error] = "Inexistant bookmark. May have been deleted."
     redirect_to :root

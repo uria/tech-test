@@ -97,6 +97,21 @@ div#footer {
     text-align: center;
 }
 
+div.flash {
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+div.flash.error {
+    background: #FEF0F0;
+    border: 1px solid #FF8888;
+}
+
+div.flash.notice {
+    background: #F0FEF0;
+    border: 1px solid #88FF88;
+}
+
 a{
     color: #0000ff;
     text-decoration: none;

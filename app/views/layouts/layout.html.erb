@@ -18,10 +18,10 @@
       </div>
       <div id="content">
         <% unless flash[:notice].blank? %>
-          <%= flash[:notice]%>
+          <div class="flash notice"><%= flash[:notice]%></div>
         <% end %>
         <% unless flash[:error].blank? %>
-          <%= flash[:error]%>
+          <div class="flash error"><%= flash[:error]%></div>
         <% end %>
 
         <%=yield%>
