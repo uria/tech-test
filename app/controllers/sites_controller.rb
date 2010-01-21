@@ -4,22 +4,19 @@ class SitesController < ApplicationController
   end
 
   def show
-    @site = Site.find_by_id(params[:id], :include => [:bookmarks])
-    
-    if @site.nil?
-      flash[:error] = "Inexistant site. May have been deleted."
-      redirect_to sites_path
-    end
+    @site = Site.find(params[:id], :include => [:bookmarks])
+  rescue
+    flash[:error] = "Inexistant site. May have been deleted."
+    redirect_to sites_path
   end
 
   def destroy
     @site = Site.find(params[:id])
-    if @site.nil?
-      flash[:error] = "Inexistant site. May have been deleted."
-    else
-      flash[:message] = "All entries for #{@site.domain} have been deleted."
-      @site.destroy
-    end
+    flash[:message] = "All entries for #{@site.domain} have been deleted."
+    @site.destroy
+    redirect_to :root
+  rescue
+    flash[:error] = "Inexistant site. May have been deleted."
     redirect_to :root
   end
 
