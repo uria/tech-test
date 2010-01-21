@@ -2,6 +2,4 @@
 <p><%=s.domain %></p>
 <% end -%>
 
-<% @bookmarks.each do |b| -%>
-<p><%=link_to b.url, bookmark_path(b) %></p>
-<% end -%>
+<%= render :partial => 'bookmark', :collection => @bookmarks %>
