@@ -2,11 +2,10 @@ require 'spec_helper'
 
 describe SitesController do
 
-  #Delete these examples and add some real ones
-  it "should use SitesController" do
-    controller.should be_an_instance_of(SitesController)
+  before do
+    @site = mock_model(Site, :domain => "www.domain.com", :bookmarks => [], :destroy => nil)
+    Site.stub!(:find).and_return(@site)
   end
-
 
   describe "GET 'index'" do
     it "should be successful" do
@@ -17,15 +16,15 @@ describe SitesController do
 
   describe "GET 'show'" do
     it "should be successful" do
-      get 'show'
+      get 'show', :id => 1
       response.should be_success
     end
   end
 
-  describe "GET 'destroy'" do
+  describe "DELETE 'destroy'" do
     it "should be successful" do
-      get 'destroy'
-      response.should be_success
+      delete 'destroy', :id => 1
+      response.should be_redirect
     end
   end
 end

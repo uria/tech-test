@@ -1,13 +1,6 @@
 require 'spec_helper'
 
 describe BookmarksController do
-
-  #Delete these examples and add some real ones
-  it "should use BookmarksController" do
-    controller.should be_an_instance_of(BookmarksController)
-  end
-
-
   describe "GET 'new'" do
     it "should be successful" do
       get 'new'
