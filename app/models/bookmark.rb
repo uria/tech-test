@@ -3,6 +3,8 @@ class Bookmark < ActiveRecord::Base
 
   validates_associated :site
   validates_uniqueness_of :path, :scope => :site_id
+
+  acts_as_taggable_on :tags
   
   #False attribute URL, splits itself into site and path
   attr_accessor :url

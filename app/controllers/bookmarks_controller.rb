@@ -1,5 +1,4 @@
 class BookmarksController < ApplicationController
-
   layout "empty", :only => :search
 
   def new
@@ -9,6 +8,7 @@ class BookmarksController < ApplicationController
   def create
     @bookmark = Bookmark.new(params[:bookmark])
     if @bookmark.save
+      flash[:notice] = "New bookmark created."
       redirect_to :root
     else
       render :new
@@ -17,6 +17,9 @@ class BookmarksController < ApplicationController
 
   def destroy
     Bookmark.destroy(params[:id])
+  rescue
+    flash[:error] = "Inexistant bookmark. May have been deleted."
+  ensure
     redirect_to :root
   end
 
@@ -27,6 +30,7 @@ class BookmarksController < ApplicationController
   def update
     @bookmark = Bookmark.find(params[:id])
     if @bookmark.update_attributes(params[:bookmark])
+      flash[:notice] = "Bookmark edited."
       redirect_to :root
     else
       render :edit

@@ -2,6 +2,7 @@ ActionController::Routing::Routes.draw do |map|
   map.root :controller => :root, :action => :index
   map.resources :bookmarks, :except => [:index], :collection => {:search => :post}
   map.resources :sites, :only => [:index, :show, :destroy]
+  map.resources :tags, :only => [:show], :controller => 'taggings'
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
