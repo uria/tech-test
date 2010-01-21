@@ -1,6 +1,4 @@
 class BookmarksController < ApplicationController
-  layout "empty", :only => :search
-
   def new
     @bookmark = Bookmark.new(params[:bookmark])
     @bookmark.title = @bookmark.get_title
@@ -50,5 +48,6 @@ class BookmarksController < ApplicationController
   def search
     @bookmarks = Bookmark.path_or_title_like(params[:q])
     @sites = Site.domain_like(params[:q])
+    render :layout => "empty"
   end
 end
