@@ -1,0 +1,12 @@
+<h1>Sites#index</h1>
+<table>
+  <% @sites.each do |site| -%>
+    <tr>
+      <td><%= site.domain %></td>
+      <td><%=link_to "See bookmarks", site_path(site) %></td>
+      <td><%=link_to "Delete site", site_path(site), :method => :delete, :confirm => "This will delete all #{site.domain} bookmarks. Are you sure?" %></td>
+    </tr>
+  <% end -%>
+</table>
+
+<%= will_paginate @sites %>

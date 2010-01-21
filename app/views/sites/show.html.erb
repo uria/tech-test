@@ -1,0 +1,4 @@
+<h1>Sites#show</h1>
+<p>Bookmarks for <%=  @site.domain %></p>
+
+<%= render :partial => 'bookmarks/bookmark', :collection => @site.bookmarks %>
