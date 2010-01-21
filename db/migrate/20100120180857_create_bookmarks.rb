@@ -4,9 +4,12 @@ class CreateBookmarks < ActiveRecord::Migration
       t.integer :site_id
       t.string  :path
       t.text    :title
+      t.string  :short_url
 
       t.timestamps
     end
+
+    add_index :bookmarks, :site_id
   end
 
   def self.down
