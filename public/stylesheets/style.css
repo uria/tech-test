@@ -141,10 +141,11 @@ div.tag-cloud tag {
     padding: 0 5px;
 }
 
-a.tag2 { font-size: 1.1em;}
-a.tag3 { font-size: 1.3em;}
-a.tag4 { font-size: 1.5em;}
-a.tag5 { font-size: 1.7em;}
+a.tag1, a.tag1:hover, a.tag1:visited { font-size: 1em;}
+a.tag2, a.tag2:hover, a.tag2:visited { font-size: 1.2em;}
+a.tag3, a.tag3:hover, a.tag3:visited { font-size: 1.4em;}
+a.tag4, a.tag4:hover, a.tag4:visited { font-size: 1.6em;}
+a.tag5, a.tag5:hover, a.tag5:visited { font-size: 1.8em;}
 
 div#suggestions-list {
     padding: 20px 0 0 0;

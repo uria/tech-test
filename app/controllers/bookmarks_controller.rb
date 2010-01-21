@@ -45,7 +45,11 @@ class BookmarksController < ApplicationController
   end
 
   def search
-    @bookmarks = Bookmark.site_domain_or_path_or_title_like(params[:q])
+    if params[:q].nil? || params[:q].length < 3
+      @bookmarks = []
+    else
+      @bookmarks = Bookmark.site_domain_or_path_or_title_like(params[:q])
+    end
     render :partial => 'bookmark', :collection => @bookmarks
   end
 end
