@@ -2,12 +2,6 @@
 
 <%= error_messages_for 'bookmark' %>
 <% semantic_form_for @bookmark do |form| %>
-  <% form.inputs :name => "Basic" do %>
-    <%= form.input :url %>
-    <%= form.input :title, :as => :string %>
-    <%= form.input :short_url, :as => :string %>
-    <%= form.input :tag_list, :as => :string %>
-    <%= form.submit 'Save' %>
-  <% end %>
+  <%=render :partial => 'form', :locals => {:form => form}%>
 <% end %>
 

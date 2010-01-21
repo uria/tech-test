@@ -1,0 +1,157 @@
+/* CSS Reset*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+/* remember to define focus styles! */
+:focus {
+    outline: 0;
+}
+
+/* remember to highlight inserts somehow! */
+ins {
+    text-decoration: none;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/********/
+
+body {
+    font-family: sans-serif;
+    background: white;
+    text-align: center;
+}
+
+div#wrapper {
+    width: 700px;
+    border: 1px solid black;
+    margin: 20px auto 0 auto;
+    padding: 20px;
+    text-align: left;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+div#header {
+    margin: 1px; /*20px 20px 1px 20px; */
+    padding-bottom: 0;
+    border-bottom: 1px solid black;
+    overflow: hidden;
+    width: 100%;
+}
+
+div#header h1 a, div#header h1 a:hover, div#header h1 a:visited {
+    color: black;
+    font-size: 30px;
+    text-decoration: none;
+}
+
+div#content {
+    padding: 20px 1px 1px 1px;
+}
+
+div#footer {
+    clear: both;
+    float: none;
+    padding: 20px;
+    margin-top: 20px;
+    font-size: 75%;
+    text-align: center;
+}
+
+a{
+    color: #0000ff;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #7777ff;
+    text-decoration: underline;
+}
+
+div.navigation {
+    font-size: 1.5em;
+}
+
+a.tag, a.tag:hover, a.tag:visited, span.tag-list {
+    color: #55dd55;
+    font-size: 0.9em;
+}
+
+div.tag-cloud {
+    border: 1px solid #55dd55;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+div.tag-cloud tag {
+    padding: 0 5px;
+}
+
+a.tag2 { font-size: 1.1em;}
+a.tag3 { font-size: 1.3em;}
+a.tag4 { font-size: 1.5em;}
+a.tag5 { font-size: 1.7em;}
+
+div#suggestions-list {
+    padding: 20px 0 0 0;
+}
+
+div.bookmark-entry {
+    margin: 0 0 10px 0;
+    padding: 5px;
+}
+
+div.bookmark-entry.odd {
+    background: #F4F4FF;
+}
+
+table td {
+    padding: 5px;
+}
+
+div.actions {
+    margin: 20px 0;
+}
+
+h2 {
+    margin: 0 0 20px 0;
+}

@@ -1,4 +1,18 @@
-<h1>Bookmark#show</h1>
-<p><%=@bookmark.url%></p>
-<p><%=@bookmark.title%></p>
-<%= link_to "Edit", edit_bookmark_path(@bookmark) %>|<%= link_to "Delete", bookmark_path(@bookmark), :method => :delete %>|
+<table>
+  <tr>
+    <td>Title:</td><td><%=@bookmark.title -%></td>
+  </tr>
+  <tr>
+    <td>URL:</td><td><%=link_to @bookmark.url, @bookmark.url -%></td>
+  </tr>
+  <tr>
+    <td>Short URL:</td><td><%=link_to @bookmark.short_url, @bookmark.short_url -%></td>
+  </tr>
+  <tr>
+    <td>Tags:</td><td><%=tag_list @bookmark.tag_list -%></td>
+  </tr>
+</table>
+
+<div class="actions">
+<%= link_to "Edit", edit_bookmark_path(@bookmark) %> | <%= link_to "Delete", bookmark_path(@bookmark), :method => :delete %>
+</div>

@@ -1,1 +1,4 @@
-<p><%=link_to bookmark.url, bookmark_path(bookmark) %> <%=tag_list bookmark.tag_list %></p>
+<div class="bookmark-entry <%=cycle 'even', 'odd' -%>">
+  <p class="bookmark-title"><%=link_to bookmark.title, bookmark_path(bookmark) %></p>
+  <p><%=link_to bookmark.url, bookmark_path(bookmark) %> <%=tag_list bookmark.tag_list %></p>
+</div>

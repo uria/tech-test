@@ -17,9 +17,9 @@ class BookmarksController < ApplicationController
 
   def destroy
     Bookmark.destroy(params[:id])
+    redirect_to :root
   rescue
     flash[:error] = "Inexistant bookmark. May have been deleted."
-  ensure
     redirect_to :root
   end
 
@@ -38,16 +38,14 @@ class BookmarksController < ApplicationController
   end
 
   def show
-    @bookmark = Bookmark.find_by_id(params[:id])
-    if @bookmark.nil?
-      flash[:error] = "Inexistant bookmark. May have been deleted."
-      redirect_to :root
-    end
+    @bookmark = Bookmark.find(params[:id])
+  rescue
+    flash[:error] = "Inexistant bookmark. May have been deleted."
+    redirect_to :root
   end
 
   def search
-    @bookmarks = Bookmark.path_or_title_like(params[:q])
-    @sites = Site.domain_like(params[:q])
-    render :layout => "empty"
+    @bookmarks = Bookmark.site_domain_or_path_or_title_like(params[:q])
+    render :partial => 'bookmark', :collection => @bookmarks
   end
 end
